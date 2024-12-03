@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import formulario, sucesso, entrada, teste, visualizar_tabela, salvar_desc, visualizar_tabela2
 
 urlpatterns = [
     path("admin/", admin.site.urls),
