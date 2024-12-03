@@ -24,4 +24,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('entrada/', entrada, name='entrada'),
     path('formulario/', formulario, name='formulario'),
+    path('sucesso/', sucesso, name='sucesso'),
+    path('teste/', teste, name='teste'),
+    path('visualizar-tabela/', visualizar_tabela, name='visualizar_tabela'),
+    path('visualizar-tabela2/', visualizar_tabela2, name='visualizar_tabela2'),
+    path('salvar_desc/', salvar_desc, name='salvar_desc'),
 ]
