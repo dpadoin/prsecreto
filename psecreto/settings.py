@@ -51,6 +51,8 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://*.apprunner.com']
+
 ROOT_URLCONF = "psecreto.urls"
 
 TEMPLATES = [
