@@ -22,4 +22,5 @@ from .views import formulario, sucesso, entrada, teste, visualizar_tabela, salva
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('entrada/', entrada, name='entrada'),
 ]
