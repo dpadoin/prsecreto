@@ -12,9 +12,9 @@ def formulario(request):
         req = request.GET
         getcha = req['chave']
         try:                
-               dados = AmigoSecretoTeste2.objects.get(chave=getcha)
+                dados = AmigoSecretoTeste2.objects.get(chave=getcha)
         except:
-                dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': ''}
+                dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': '', '_meta': ''}
                 
         try:
                 pessoa = dados.autor
