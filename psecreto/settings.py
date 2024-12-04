@@ -54,7 +54,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.apprunner.com', 'http://*.apprunner.com', 'https://*']
+CSRF_TRUSTED_ORIGINS = ['https://*.*.apprunner.com', 'http://*.apprunner.com', 'https://*','https://ix6tmxqyrb.us-east-2.awsapprunner.com']
 
 ROOT_URLCONF = "psecreto.urls"
 
