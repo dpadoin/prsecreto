@@ -11,12 +11,15 @@ def entrada(request):
 def formulario(request):
         req = request.GET
         getcha = req['chave']
-        #try:                
-        #    dados = AmigoSecretoTeste2.objects.get(chave=getcha)
-        #except:
-        dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': ''}
+        try:                
+               dados = AmigoSecretoTeste2.objects.get(chave=getcha)
+        except:
+                dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': ''}
                 
-        pessoa = dados.autor
+        try:
+                pessoa = dados.autor
+        except:
+                pessoa = dados['autor']
                 
         if request.method == 'POST':
                     form = DescreverForm(request.POST)
