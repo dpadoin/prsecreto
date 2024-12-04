@@ -4,10 +4,12 @@ from .forms import PessoaForm, EntradaForm, DescreverForm
 from django.db import models
 from .models import Teste, AmigoSecretoTeste2
 
+@csrf_exempt
 def entrada(request):
         form = EntradaForm()
         return render(request, 'entrada.html', {'form': form})
 
+@csrf_exempt
 def formulario(request):
         req = request.GET
         getcha = req['chave']
@@ -29,9 +31,11 @@ def formulario(request):
                     form = DescreverForm(instance=dados)
                     return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
 
+@csrf_exempt
 def sucesso(request):
         return render(request, 'sucesso.html')
 
+@csrf_exempt
 def teste(request):
         req = request.GET
         getcha = req['chave']
@@ -41,14 +45,17 @@ def teste(request):
                 dados = {'nome':'Não Encontrado'}        
         return render(request, 'teste.html', {'dados': dados, 'getcha': getcha})
 
+@csrf_exempt
 def visualizar_tabela(request):
     dados_tabela = AmigoSecretoTeste2.objects.all()  # Obtém todos os objetos da tabela
     return render(request, 'tabela.html', {'dados_tabela': dados_tabela})
 
+@csrf_exempt
 def visualizar_tabela2(request):
     dados_tabela = AmigoSecretoTeste2.objects.all()  # Obtém todos os objetos da tabela
     return render(request, 'tabela2.html', {'dados_tabela': dados_tabela,})
 
+@csrf_exempt
 def salvar_desc(request):
         req = request.POST
         desc = req['descricao']
