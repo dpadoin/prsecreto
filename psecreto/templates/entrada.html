@@ -64,7 +64,7 @@
 								    </style>
 	  </head>
 	  <body>
-		      <form method="post" action="{% url 'formulario' %}">
+		      <form method="get" action="{% url 'formulario' %}">
 			              {% csrf_token %}
 				              <h1>Amigo Bem Secreto</h1>
 					              <label for="id_chave">Chave:</label>
