@@ -12,28 +12,29 @@ def formulario(request):
         req = request.GET        
         getcha = req['chave']
         print(getcha)
-        try:                
-                dados = AmigoSecretoTeste2.objects.get(chave=getcha)
-                print(dados)
-        except:
-                dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': '', '_meta': ''}
-                print("dict")
-                
-        try:
-                pessoa = dados.autor
-        except:
-                pessoa = dados['autor']
-                
-        if request.method == 'POST':
-                form = DescreverForm(request.POST)
-                if form.is_valid():
-                        form.save()
-                        return render(request, 'teste.html')
-                else:
-                        return render(request, 'formulario.html', {'form': form})  
-        else:
-                form = DescreverForm(instance=dados)
-                return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
+        #try:                
+        #        dados = AmigoSecretoTeste2.objects.get(chave=getcha)
+        #        print(dados)
+        #except:
+        #        dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': '', '_meta': ''}
+        #        print("dict")
+        #        
+        #try:
+        #        pessoa = dados.autor
+        #except:
+        #        pessoa = dados['autor']
+        #        
+        #if request.method == 'POST':
+        #        form = DescreverForm(request.POST)
+        #        if form.is_valid():
+        #                form.save()
+        #                return render(request, 'teste.html')
+        #        else:
+        #                return render(request, 'formulario.html', {'form': form})  
+        #else:
+        #        form = DescreverForm(instance=dados)
+        #return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
+        return 
 
 def sucesso(request):
         return render(request, 'sucesso.html')
