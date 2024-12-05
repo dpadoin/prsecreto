@@ -34,7 +34,7 @@ def formulario(request):
         #else:
         #        form = DescreverForm(instance=dados)
         #return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
-        return 
+        return "<html>"+str(getcha)+"</html>"
 
 def sucesso(request):
         return render(request, 'sucesso.html')
