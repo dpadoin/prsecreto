@@ -9,12 +9,15 @@ def entrada(request):
         return render(request, 'entrada.html', {'form': form})
 
 def formulario(request):
-        req = request.GET
+        req = request.GET        
         getcha = req['chave']
+        print(getcha)
         try:                
                 dados = AmigoSecretoTeste2.objects.get(chave=getcha)
+                print(dados)
         except:
                 dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': '', '_meta': ''}
+                print("dict")
                 
         try:
                 pessoa = dados.autor
@@ -22,15 +25,15 @@ def formulario(request):
                 pessoa = dados['autor']
                 
         if request.method == 'POST':
-                    form = DescreverForm(request.POST)
-                    if form.is_valid():
-                            form.save()
-                            return render(request, 'teste.html')
-                    else:
-                              return render(request, 'formulario.html', {'form': form})  
+                form = DescreverForm(request.POST)
+                if form.is_valid():
+                        form.save()
+                        return render(request, 'teste.html')
+                else:
+                        return render(request, 'formulario.html', {'form': form})  
         else:
-                    form = DescreverForm(instance=dados)
-                    return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
+                form = DescreverForm(instance=dados)
+                return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
 
 def sucesso(request):
         return render(request, 'sucesso.html')
