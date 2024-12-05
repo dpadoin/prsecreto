@@ -13,14 +13,14 @@ def formulario(request):
         getcha = req['chave']
         print(getcha)
         #try:                
-        #        dados = AmigoSecretoTeste2.objects.get(chave=getcha)
+        dados = AmigoSecretoTeste2.objects.get(chave=getcha)
         #        print(dados)
         #except:
         #        dados = {'autor':'Não Encontrado', 'descricao': '', 'chave': '', '_meta': ''}
         #        print("dict")
         #        
         #try:
-        #        pessoa = dados.autor
+        pessoa = dados.autor
         #except:
         #        pessoa = dados['autor']
         #        
@@ -32,9 +32,8 @@ def formulario(request):
         #        else:
         #                return render(request, 'formulario.html', {'form': form})  
         #else:
-        #        form = DescreverForm(instance=dados)
-        #return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
-        return "<html>"+str(getcha)+"</html>"
+        form = DescreverForm(instance=dados)
+        return render(request, 'formulario.html', {'form': form, 'pessoa': pessoa, 'chave': getcha})
 
 def sucesso(request):
         return render(request, 'sucesso.html')
